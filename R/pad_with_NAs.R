@@ -12,5 +12,11 @@
 #' pad_with_NAs(c("spider", "mouse", "cat", "dog"), n_left = 1, n_right = 2)
 #'
 pad_with_NAs <- function(x, n_left, n_right){
+  # Input checks
+  stopifnot(n_left >= 0)
+  stopifnot(n_right >= 0)
+  stopifnot(class(x) %in% c("character", "complex", "integer", "logical", "numeric", "factor"))
+
+  # Function Body
   c(rep(NA, n_left), x, rep(NA, n_right))
 }
